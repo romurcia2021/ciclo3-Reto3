@@ -5,9 +5,12 @@ const incomRoutes =require('./routes/income.routes')
 const outcomRoutes = require('./routes/outcome.routes')
 const app = express()
 require('dotenv').config()
-const port = 3000
+// const port = 3000
+
+
 
 //configuraciones
+app.set('port', process.env.PORT, || 3000) // para tener puerto en la web de mongoDB
 app.use(morgan('dev'))
 mongoose.connect(process.env.DB_URL)
 .then(db=> console.log('connected'))
@@ -30,6 +33,6 @@ app.get('/tripulantes', (req, res) =>{
 )
 
 //inicio servidor
-app.listen(port, ()=>{
+app.listen(app.get('port'), ()=>{
     console.log('Server iniciado')
 })
