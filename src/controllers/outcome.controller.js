@@ -6,14 +6,15 @@ const outcomeController = {
             const outcome = new Outcome(req.body)
             await outcome.save()
             res.status(200).json(outcome)
-        }catch (error{
+        }catch (error){
+
             res.status(500).json(error)
 
         }
     },
     async list(req,res){
         try{
-            const outcomes = await Outcome.find()
+            const outcomes = await Outcome.find({user: req.body.user})
             res.status(200).json(outcomes)
         }catch (error){
             res.status(500).json(error)

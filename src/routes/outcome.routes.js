@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const outcomeController = require('../controllers/income.controller')
+const outcomeController = require('../controllers/outcome.controller')
+
 
 
 
